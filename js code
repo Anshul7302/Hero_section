@@ -1,0 +1,20 @@
+const hero = document.querySelector('.hero');
+const background = document.querySelector('.background-image');
+
+// Mouse movement effect for background
+hero.addEventListener('mousemove', (e) => {
+  const { clientX, clientY } = e;
+  const xOffset = (clientX / window.innerWidth - 0.5) * 20;
+  const yOffset = (clientY / window.innerHeight - 0.5) * 20;
+
+  gsap.to(background, {
+    x: xOffset,
+    y: yOffset,
+    duration: 0.5,
+  });
+});
+
+// Initial animations for content
+gsap.from('.hero-title', { opacity: 0, y: 50, duration: 1.5 });
+gsap.from('.hero-subtitle', { opacity: 0, y: 50, delay: 0.5, duration: 1.5 });
+gsap.from('.cta-button', { opacity: 0, scale: 0.8, delay: 1, duration: 1.5 });
